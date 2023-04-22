@@ -13,6 +13,7 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "MultiProject"
-include ':Resturant'
+include ':Restaurant'
 include ':Common'
 include ':Foodrecipes'
+include ':recipes'

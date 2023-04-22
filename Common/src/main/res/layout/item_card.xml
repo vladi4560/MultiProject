@@ -24,8 +24,8 @@
                 android:id="@+id/itemPic_IMG_card"
                 android:layout_width="match_parent"
                 android:layout_height="194dp"
-                app:srcCompat="@drawable/ic_food"
                 android:scaleType="centerCrop"
+                app:srcCompat="@drawable/ic_food"
 
                 />
 
@@ -40,29 +40,28 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Title"
-                    android:textSize="16sp"
                     android:textAppearance="?attr/textAppearanceTitleMedium"
-                    />
+                    android:textSize="16sp" />
+
                 <TextView
                     android:id="@+id/secondaryText_TXT_card"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:text="secondary_text"
-                    android:textSize="14sp"
                     android:textAppearance="?attr/textAppearanceBodyMedium"
                     android:textColor="?android:attr/textColorSecondary"
-                    />
+                    android:textSize="14sp" />
+
                 <TextView
                     android:id="@+id/supportingText_TXT_card"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="12sp"
                     android:text="supporting_text"
-                    android:textSize="14sp"
                     android:textAppearance="?attr/textAppearanceBodyMedium"
                     android:textColor="?android:attr/textColorSecondary"
-                    />
+                    android:textSize="14sp" />
 
             </LinearLayout>
 
@@ -71,9 +70,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="4dp"
-                android:orientation="horizontal"
                 android:gravity="right"
-                >
+                android:orientation="horizontal">
 
                 <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
                     android:id="@+id/addReview_BTB_Card"
@@ -87,7 +85,7 @@
                 android:id="@+id/reviews_RYC_Card"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:visibility="gone"/>
+                android:visibility="gone" />
 
         </LinearLayout>
 

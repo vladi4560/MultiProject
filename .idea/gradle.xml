@@ -12,7 +12,8 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Common" />
             <option value="$PROJECT_DIR$/Foodrecipes" />
-            <option value="$PROJECT_DIR$/Resturant" />
+            <option value="$PROJECT_DIR$/Restaurant" />
+            <option value="$PROJECT_DIR$/recipes" />
           </set>
         </option>
       </GradleProjectSettings>

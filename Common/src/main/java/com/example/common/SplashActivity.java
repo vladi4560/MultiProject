@@ -12,7 +12,7 @@ public class SplashActivity extends AppCompatActivity {
 
 
     private LottieAnimationView animation;
-    final int ANIM_DURATION = 6000;
+    final int ANIM_DURATION = 4000;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

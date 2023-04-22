@@ -20,11 +20,11 @@ public abstract class ReviewActivity_Parent extends AppCompatActivity {
     private LinearLayoutManager manager;
     private NumberPicker numberPickerPopUp;
     private int numberPickerValue=1;
-
     private TextInputLayout namePopUp,reviewPopUp;
     private MaterialButton submitBtn;
     private DataMn dataMn;
     protected abstract void getData();
+    protected abstract int getIMG();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,29 +36,8 @@ public abstract class ReviewActivity_Parent extends AppCompatActivity {
 
     }
 
-    public void btnAction() {
-        numberPickerPopUp.setMaxValue(5);
-        numberPickerPopUp.setMinValue(1);
-        numberPickerPopUp.setOnValueChangedListener(new NumberPicker.OnValueChangeListener() {
-            @Override
-            public void onValueChange(NumberPicker numberPicker, int i, int i1) {
-                numberPickerValue = i1;
-            }
-        });
-        submitBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-               if(!checkReview()){
-                   return;
-               }
-            }
-        });
-    }
     public void actionBtn(int position) {
-//        numberPickerPopUp = findViewById(R.id.rate_NUP_popupWindow);
-//        namePopUp = findViewById(R.id.name_TXT_popupWindow);
-//        reviewPopUp = findViewById(R.id.review_TXT_popupWindow);
-//        submitBtn = findViewById(R.id.submit_BTN_popupWindow);
+
         AlertDialog.Builder mbuilder = new AlertDialog.Builder(ReviewActivity_Parent.this);
         View view = getLayoutInflater().inflate(R.layout.popup_window1,null);
         mbuilder.setView(view);
@@ -74,7 +53,6 @@ public abstract class ReviewActivity_Parent extends AppCompatActivity {
             @Override
             public void onValueChange(NumberPicker numberPicker, int i, int i1) {
                 numberPickerValue = i1;
-                Log.d("pttt",""+numberPicker);
             }
         });
         submitBtn.setOnClickListener(new View.OnClickListener() {
@@ -83,6 +61,7 @@ public abstract class ReviewActivity_Parent extends AppCompatActivity {
                 if(!checkReview()){
                     return;
                 }
+                dataMn.getItemList().get(position).addReview(new UserReview(namePopUp.getEditText().getText().toString(),numberPickerValue,reviewPopUp.getEditText().getText().toString()));
                 //listItem.get(position).addReview(new UserReview(namePopUp.getEditText().getText().toString(),numberPickerValue,reviewPopUp.getEditText().getText().toString()));
                 dialog.cancel();
                 adapter.notifyDataSetChanged();
@@ -93,9 +72,9 @@ public abstract class ReviewActivity_Parent extends AppCompatActivity {
     private void findView() {
         adapter = new ReviewAdapter(dataMn.getItemList(),getApplicationContext());
         adapter.setCallBackAddReview(callBackAddReview);
+        adapter.setCardImage(getIMG());
         manager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView = findViewById(R.id.itemList_RYC_main);
-        Log.d("pttt",recyclerView+"");
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(manager);
         recyclerView.setHasFixedSize(true);
